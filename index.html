@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Glass Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .glass {
+            width: 320px;
+            padding: 30px;
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+            color: white;
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .glass:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+
+            border: none;
+            outline: none;
+
+            border-radius: 8px;
+
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        input::placeholder {
+            color: #ddd;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: rgba(255,255,255,0.2);
+            color: white;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        #msg {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="glass">
+    <h2>Login</h2>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="msg"></p>
+</div>
+
+<script>
+function login() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if (user === "admin" && pass === "1234") {
+        document.getElementById("msg").style.color = "#90ee90";
+        document.getElementById("msg").innerText = "Login successful!";
+
+        setTimeout(() => {
+            window.location.href = "dashboard.html";
+        }, 1000);
+    } else {
+        document.getElementById("msg").style.color = "red";
+        document.getElementById("msg").innerText = "Invalid credentials";
+    }
+}
+</script>
+
+</body>
+</html>
